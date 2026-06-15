@@ -54,6 +54,12 @@ button {
   height: calc(100vh - 2rem);
 }
 
+.sidebar-search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
 .sidebar-header,
 .topbar,
 .graph-heading {
@@ -181,7 +187,8 @@ h1 {
 }
 
 .title-input,
-.markdown-editor {
+.markdown-editor,
+.search-input {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.13);
   background: rgba(0, 0, 0, 0.25);
@@ -191,7 +198,8 @@ h1 {
 }
 
 .title-input:focus,
-.markdown-editor:focus {
+.markdown-editor:focus,
+.search-input:focus {
   border-color: #8be9fd;
   box-shadow: 0 0 0 4px rgba(139, 233, 253, 0.12);
 }
@@ -208,6 +216,17 @@ h1 {
   padding: 1rem;
   line-height: 1.7;
   resize: vertical;
+}
+
+.search-input {
+  padding: 0.8rem 0.9rem;
+}
+
+.empty-state {
+  padding: 0.85rem;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .preview-panel {
@@ -276,6 +295,30 @@ h1 {
   overflow: hidden;
 }
 
+.graph-meta {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: right;
+}
+
+.selected-note-label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 280px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(248, 214, 109, 0.35);
+  border-radius: 999px;
+  background: rgba(248, 214, 109, 0.12);
+  color: #f8d66d;
+  font-size: 0.86rem;
+  font-weight: 800;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 @media (max-width: 1050px) {
   .app-shell,
   .editor-grid {
@@ -302,5 +345,10 @@ h1 {
 
   .primary-button {
     width: 100%;
+  }
+
+  .graph-meta {
+    align-items: flex-start;
+    text-align: left;
   }
 }

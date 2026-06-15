@@ -18,7 +18,10 @@ function GraphView({ notes, currentTitle, onSelectNote }) {
           <p className="eyebrow">Knowledge Map</p>
           <h2>Note Graph</h2>
         </div>
-        <p className="muted">Click a node to open that note.</p>
+        <div className="graph-meta">
+          <span className="selected-note-label">Selected: {currentTitle}</span>
+          <p className="muted">Click a node to open it in the editor.</p>
+        </div>
       </div>
 
       <ForceGraph2D

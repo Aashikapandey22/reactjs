@@ -134,6 +134,11 @@ function App() {
     setCurrentTitle(cleanTitle);
   }
 
+  function openNoteInEditor(title) {
+    setCurrentTitle(title);
+    setShowGraph(false);
+  }
+
   const backlinks = useMemo(() => {
     return Object.entries(notes)
       .filter(([title, note]) => title !== currentTitle && parseWikiLinks(note.content).includes(currentTitle))
@@ -162,7 +167,7 @@ function App() {
         </div>
 
         {showGraph ? (
-          <GraphView notes={notes} currentTitle={currentTitle} onSelectNote={setCurrentTitle} />
+          <GraphView notes={notes} currentTitle={currentTitle} onSelectNote={openNoteInEditor} />
         ) : (
           <div className="editor-grid">
             <div className="editor-stack">

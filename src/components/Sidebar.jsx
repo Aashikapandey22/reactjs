@@ -1,7 +1,11 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 function Sidebar({ notes, currentTitle, onSelectNote, onCreateNote }) {
-  const noteTitles = Object.keys(notes).sort((a, b) => a.localeCompare(b));
+  const [searchTerm, setSearchTerm] = useState('');
+  const noteTitles = Object.keys(notes)
+    .filter((title) => title.toLowerCase().includes(searchTerm.trim().toLowerCase()))
+    .sort((a, b) => a.localeCompare(b));
 
   return (
     <motion.aside
@@ -20,7 +24,22 @@ function Sidebar({ notes, currentTitle, onSelectNote, onCreateNote }) {
         </button>
       </div>
 
+      <div className="sidebar-search">
+        <label className="field-label" htmlFor="note-search">
+          Search notes
+        </label>
+        <input
+          id="note-search"
+          className="search-input"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          placeholder="Find by title..."
+        />
+      </div>
+
       <div className="notes-list">
+        {noteTitles.length === 0 && <p className="muted empty-state">No matching notes found.</p>}
+
         {noteTitles.map((title) => (
           <button
             key={title}
