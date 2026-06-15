@@ -9,12 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vite": "latest",
+    "framer-motion": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-markdown": "latest",
     "react-force-graph": "latest",
-    "framer-motion": "latest"
-  },
-  "devDependencies": {}
+    "react-force-graph-2d": "^1.29.1",
+    "react-markdown": "latest",
+    "vite": "latest"
+  }
 }
